@@ -1,0 +1,212 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Algorithms homework</title><style>
+:root{color:#162940;background:#f1f4f8;font:16px/1.55 system-ui,sans-serif;--navy:#0a1b2e;--gold:#e3c783;--line:#d7e0ec}
+*{box-sizing:border-box}body{margin:0}header{background:var(--navy);color:#fff;border-bottom:5px solid var(--gold)}.wrap{width:min(1060px,calc(100% - 36px));margin:auto}header .wrap{padding:32px 0 36px}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.04;letter-spacing:-.045em;margin:.35em 0 .25em}h2{font-size:clamp(1.45rem,3vw,2.15rem);letter-spacing:-.025em;line-height:1.15;margin:.25em 0 .55em}h3{margin:1.5em 0 .4em}h4{margin:0 0 .45em}p{margin:.5em 0 1em}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.15em;color:#735119}.on-dark{color:var(--gold)}header p{max-width:68ch;margin-bottom:0;color:#dce7f3}.controls,section{background:white;border:1px solid var(--line);border-radius:12px;padding:clamp(16px,4vw,32px);margin:19px 0}.controls{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end}.controls p{grid-column:1/-1;margin:0;font-size:.88rem}.controls .response{margin:0}nav{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}nav a{color:#204c74;font-weight:700;padding:.2em .5em}.two,.flow-pair,.charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.charts{grid-template-columns:repeat(3,minmax(0,1fr))}.charts figure{margin:0;border:1px solid var(--line);padding:8px;border-radius:8px}.charts figcaption{font-weight:800;text-align:center}.charts svg{width:100%;display:block}
+pre{margin:.5em 0 1em;overflow:auto;border-radius:8px;background:#11263c;color:#f5f8fd;padding:14px 16px;font-size:.96rem;line-height:1.55}code{font-family:ui-monospace,Menlo,Consolas,monospace}.response{display:grid;gap:6px;margin:12px 0;font-weight:650}input,textarea,select,button{font:inherit}input,textarea,select{width:100%;padding:8px 10px;border:1px solid #8196af;border-radius:6px;background:#fdfefe;color:#12283e}textarea{resize:vertical}button{padding:8px 12px;border-radius:6px;border:1px solid #8196af;background:#f3f7fd;color:#10283e;cursor:pointer}button.primary{background:#153453;color:white;border-color:#153453;font-weight:750}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #1762a6;outline-offset:3px}.bank{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.tile{font-family:ui-monospace,monospace}.tile[aria-pressed=true]{background:#ffdf91;border-color:#806021}.tile.used{opacity:.56}.slots{display:grid;gap:7px}.slots>div{display:grid;grid-template-columns:minmax(135px,1fr) minmax(130px,1.4fr);gap:8px;align-items:center}.slot{min-height:42px;border-style:dashed;text-align:left}.slot.filled{border-style:solid;background:#edf4fc;font-family:ui-monospace,monospace}.flow{padding:0;list-style:none;margin:0 0 16px;text-align:center}.flow li{position:relative;margin:0 auto 22px;padding:6px 12px;max-width:280px;border:2px solid #526b89;background:#eef4fa}.flow li:not(:last-child)::after{content:'↓';position:absolute;top:100%;left:0;right:0;font-weight:800}.flow li:last-child{margin-bottom:0}.flow .terminal{border-radius:30px;max-width:220px}.flow .io{clip-path:polygon(5% 0,100% 0,95% 100%,0 100%);border-radius:0 10px}.flow .sub{border-left:7px double #526b89;border-right:7px double #526b89}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;min-width:420px}td,th{border:1px solid var(--line);padding:7px 10px;text-align:left}thead{background:#e9eff8}td input{min-width:55px}footer{margin:24px 0 40px;font-size:.92rem}#print-sheet{display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:650px){.two,.charts,.flow-pair{grid-template-columns:1fr}.charts svg{max-width:300px;margin:auto}.controls{grid-template-columns:1fr}.slots>div{grid-template-columns:1fr}.slots{gap:12px}}
+@media print{
+  @page{size:A4;margin:13mm 14mm 16mm;@bottom-left{content:"YEAR 10  /  OCR J277";font:8pt system-ui,sans-serif;color:#455c72}@bottom-right{content:"PAGE " counter(page);font:8pt system-ui,sans-serif;color:#455c72}}
+  :root,body{background:white;color:#162940}
+  body>*{display:none!important}
+  #print-sheet{display:block!important;font:10.5pt/1.37 system-ui,sans-serif;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  #print-sheet .print-heading{display:block;background:#eef2f7;color:#0a1b2e;border:0;border-top:5px solid #0a1b2e;border-bottom:2px solid #ad7f27;padding:13px 18px;margin:0 0 15px;break-inside:avoid}
+  #print-sheet .print-heading .eyebrow{font-size:8pt;color:#735119}
+  #print-sheet h1{font-size:25pt;margin:3px 0 9px;letter-spacing:-.035em}
+  #print-sheet .print-heading p{margin:0;color:#162940}
+  #print-sheet .print-activity{margin:0 0 12px;padding:0;border:0;border-radius:0;background:white}
+  #print-sheet .print-activity-heading{border-left:4px solid #ad7f27;background:#eef2f7;padding:5px 10px 6px;margin:0 0 7px;break-inside:avoid;break-after:avoid}
+  #print-sheet .print-activity-heading .eyebrow{font-size:7pt}
+  #print-sheet h2{font-size:13.5pt;margin:1px 0 0;letter-spacing:-.015em}
+  #print-sheet h3{font-size:10.5pt;margin:9px 0 3px;break-after:avoid}
+  #print-sheet h4{font-size:9.5pt;margin:4px 0 2px;break-after:avoid}
+  #print-sheet p{margin:4px 0 6px;orphans:2;widows:2}
+  #print-sheet pre{background:#f4f6f9;color:#162940;border:1px solid #d7e0ec;border-radius:3px;font-size:8.2pt;line-height:1.25;padding:5px 8px;margin:4px 0 6px;white-space:pre-wrap;overflow:visible;overflow-wrap:anywhere;break-inside:avoid}
+  #print-sheet .print-response{display:block;margin:4px 0 6px}
+  #print-sheet .print-response-label{display:block;font-size:8.4pt;font-weight:750;color:#344d66;margin-bottom:2px;break-after:avoid}
+  #print-sheet .print-answer{background:#fbfaf6;border:1px solid #e6dcc3;border-left:3px solid #ad7f27;border-radius:3px;padding:4px 7px;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;orphans:2;widows:2}
+  #print-sheet .print-empty{color:#68788a;font-style:italic}
+  #print-sheet .two,#print-sheet .flow-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;break-inside:avoid}
+  #print-sheet .charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;break-inside:avoid}
+  #print-sheet .charts figure{padding:3px}
+  #print-sheet .charts svg{height:28mm}
+  #print-sheet .flow{margin:0 0 6px;font-size:8pt;break-inside:avoid}
+  #print-sheet .flow li{border-width:1px;margin-bottom:13px;padding:2px 5px}
+  #print-sheet .flow li:last-child{margin-bottom:0}
+  #print-sheet .flow .sub{border-left-width:4px;border-right-width:4px}
+  #print-sheet .slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 12px;break-inside:avoid}
+  #print-sheet .slots>div{display:block}
+  #print-sheet .slots>div>span:first-child{display:block;font-size:8pt;font-weight:750}
+  #print-sheet .table-scroll{overflow:visible;margin:6px 0}
+  #print-sheet table{width:100%;min-width:0;table-layout:fixed;break-inside:avoid}
+  #print-sheet th:first-child{width:34%}
+  #print-sheet td,#print-sheet th{padding:4px 6px;font-size:9pt;white-space:pre-wrap;overflow-wrap:anywhere}
+  #print-sheet td .print-answer{background:none;border:none;padding:0}
+  #print-sheet tr{break-inside:avoid}
+  body[data-version="class"] #print-sheet .print-activity:nth-of-type(4),
+  body:not([data-version="class"]) #print-sheet .print-activity:nth-of-type(3){break-before:page}
+}
+</style><body data-version="standard"><header><div class="wrap"><span class="eyebrow on-dark">YEAR 10 COMPUTER SCIENCE · OCR J277</span><h1>Algorithms homework</h1><p>Complete these questions independently. Your teacher will review your answers after hand-in.</p></div></header><main class="wrap"><div class="controls"><label class="response">Your name<input id="student-name" type="text" autocomplete="off"></label><button class="primary" id="export" type="button">Print / Save PDF</button><p id="save-status" aria-live="polite">Answers save on this device when available. Choose Print / Save PDF, select Save as PDF and upload the file to Teams.</p></div><nav aria-label="Jump to activity"><a href="#activity-1">1</a><a href="#activity-2">2</a><a href="#activity-3">3</a><a href="#activity-4">4</a></nav><section id="activity-1"><span class="eyebrow">ACTIVITY 1</span><h2>Translate ERL → C#</h2><p>Translate this program into C#. Assume the input contains a whole number.</p><pre><code>score = int(input(&quot;&quot;))
+if score &gt;= 10 then
+    print(&quot;Pass&quot;)
+else
+    print(&quot;Retry&quot;)
+endif</code></pre><label class="response">C# program<textarea id="std1" rows="9" spellcheck="false"></textarea></label></section><section id="activity-2"><span class="eyebrow">ACTIVITY 2</span><h2>Translate C# → ERL</h2><p>Translate this program into ERL.</p><pre><code>string word = Console.ReadLine();
+for (int i = 1; i &lt;= 2; i++)
+{
+    Console.WriteLine(word.ToUpperInvariant());
+}</code></pre><label class="response">ERL program<textarea id="std2" rows="8" spellcheck="false"></textarea></label></section><section id="activity-3"><span class="eyebrow">ACTIVITY 3</span><h2>Write ERL from a flowchart</h2><p>Write the main program and the function shown. The function receives <code>points</code> and returns a number.</p><div class="flow-pair"><div><h4>Main program</h4><ol class="flow"><li class="terminal">Start</li><li class="io">Input whole number points</li><li class="sub">result = doublePoints(points)</li><li class="io">Output result</li><li class="terminal">End</li></ol></div><div><h4>doublePoints(points)</h4><ol class="flow"><li class="terminal">Start function</li><li>result = points × 2</li><li class="terminal">Return result</li></ol></div></div><label class="response">ERL program<textarea id="std3" rows="10" spellcheck="false"></textarea></label></section><section id="activity-4"><span class="eyebrow">ACTIVITY 4</span><h2>Trace the ERL</h2><p>Use these inputs in order: <strong>3, 5, 1, 7</strong>. Write a dash where there is no output.</p><pre><code>total = 0
+for i = 1 to 4
+    score = int(input(&quot;&quot;))
+    if score &gt;= 5 then
+        total = total + score
+    endif
+next i
+print(total)</code></pre><div class="table-scroll"><table><thead><tr><th scope="col">Checkpoint</th><th scope="col">i</th><th scope="col">score</th><th scope="col">total</th><th scope="col">Output</th></tr></thead><tbody><tr><th scope="row">After total = 0</th><td>—</td><td>—</td><td><input type="text" id="std4-0-2" aria-label="After total = 0, total"></td><td><input type="text" id="std4-0-3" aria-label="After total = 0, Output"></td></tr><tr><th scope="row">End of iteration 1</th><td><input type="text" id="std4-1-0" aria-label="End of iteration 1, i"></td><td><input type="text" id="std4-1-1" aria-label="End of iteration 1, score"></td><td><input type="text" id="std4-1-2" aria-label="End of iteration 1, total"></td><td><input type="text" id="std4-1-3" aria-label="End of iteration 1, Output"></td></tr><tr><th scope="row">End of iteration 2</th><td><input type="text" id="std4-2-0" aria-label="End of iteration 2, i"></td><td><input type="text" id="std4-2-1" aria-label="End of iteration 2, score"></td><td><input type="text" id="std4-2-2" aria-label="End of iteration 2, total"></td><td><input type="text" id="std4-2-3" aria-label="End of iteration 2, Output"></td></tr><tr><th scope="row">End of iteration 3</th><td><input type="text" id="std4-3-0" aria-label="End of iteration 3, i"></td><td><input type="text" id="std4-3-1" aria-label="End of iteration 3, score"></td><td><input type="text" id="std4-3-2" aria-label="End of iteration 3, total"></td><td><input type="text" id="std4-3-3" aria-label="End of iteration 3, Output"></td></tr><tr><th scope="row">End of iteration 4</th><td><input type="text" id="std4-4-0" aria-label="End of iteration 4, i"></td><td><input type="text" id="std4-4-1" aria-label="End of iteration 4, score"></td><td><input type="text" id="std4-4-2" aria-label="End of iteration 4, total"></td><td><input type="text" id="std4-4-3" aria-label="End of iteration 4, Output"></td></tr><tr><th scope="row">At print(total)</th><td>—</td><td>—</td><td><input type="text" id="std4-5-2" aria-label="At print(total), total"></td><td><input type="text" id="std4-5-3" aria-label="At print(total), Output"></td></tr></tbody></table></div></section><footer>Save your responses as a PDF and upload it to Teams. Finish any outstanding core C# tasks in the editor used in class.</footer><p class="sr-only" id="interaction-status" aria-live="polite"></p></main><div id="print-sheet"></div><script>
+const form = document.querySelector('main');
+const key = 'y10-algorithm-workbook-v1-' + document.body.dataset.version;
+const fields = [...form.querySelectorAll('input, textarea, select')];
+const groups = [...form.querySelectorAll('.matching')];
+const status = document.querySelector('#save-status');
+const interaction = document.querySelector('#interaction-status');
+let state = {};
+try { state = JSON.parse(localStorage.getItem(key) || '{}') || {}; }
+catch { status.textContent = 'Autosave is unavailable. Export your responses before you close this page.'; }
+function save() {
+  try {
+    localStorage.setItem(key, JSON.stringify(state));
+    status.textContent = 'Saved on this device.';
+  } catch {
+    status.textContent = 'Autosave is unavailable. Export your responses before you close this page.';
+  }
+}
+for (const field of fields) {
+  field.value = state[field.id] ?? '';
+  field.addEventListener('input', () => { state[field.id] = field.value; save(); });
+}
+for (const group of groups) {
+  const tiles = [...group.querySelectorAll('.tile')];
+  const targets = [...group.querySelectorAll('.slot')];
+  let selected = null;
+  function render() {
+    for (const tile of tiles) {
+      tile.classList.toggle('used', targets.some(slot => state[slot.id] === tile.dataset.tile));
+      tile.setAttribute('aria-pressed', String(selected === tile.dataset.tile));
+    }
+    for (const slot of targets) {
+      const tile = tiles.find(t => t.dataset.tile === state[slot.id]);
+      slot.textContent = tile ? tile.textContent : 'Drop or select here';
+      slot.classList.toggle('filled', Boolean(tile));
+    }
+  }
+  function place(slot, value) {
+    const tile = tiles.find(item => item.dataset.tile === value);
+    if (!tile) return;
+    for (const other of targets) if (state[other.id] === value) delete state[other.id];
+    state[slot.id] = value;
+    selected = null;
+    render();
+    interaction.textContent = tile.textContent + ' placed in ' + slot.previousElementSibling.textContent;
+    save();
+  }
+  for (const tile of tiles) {
+    tile.addEventListener('click', () => { selected = selected === tile.dataset.tile ? null : tile.dataset.tile; render(); });
+    tile.addEventListener('dragstart', event => {
+      event.dataTransfer.setData('text/plain', group.dataset.match + ':' + tile.dataset.tile);
+      event.dataTransfer.effectAllowed = 'move';
+    });
+  }
+  for (const slot of targets) {
+    slot.addEventListener('dragover', event => event.preventDefault());
+    slot.addEventListener('drop', event => {
+      event.preventDefault();
+      const [match, value] = event.dataTransfer.getData('text/plain').split(':');
+      if (match === group.dataset.match) place(slot, value);
+    });
+    slot.addEventListener('click', () => {
+      if (selected !== null) place(slot, selected);
+      else if (slot.id in state) {
+        delete state[slot.id];
+        render();
+        interaction.textContent = slot.previousElementSibling.textContent + ' cleared';
+        save();
+      }
+    });
+  }
+  render();
+}
+const nameField = document.querySelector('#student-name');
+const pageTitle = document.title;
+function textElement(tag, value, className) {
+  const element = document.createElement(tag);
+  element.textContent = value;
+  if (className) element.className = className;
+  return element;
+}
+function printValue(value, tag = 'div') {
+  const answer = textElement(tag, value || 'Blank', 'print-answer');
+  if (!value) answer.classList.add('print-empty');
+  return answer;
+}
+function preparePrint() {
+  const sheet = document.querySelector('#print-sheet');
+  const heading = textElement('header', '', 'print-heading');
+  heading.append(
+    textElement('span', 'YEAR 10 COMPUTER SCIENCE · OCR J277 · TEAMS HAND-IN', 'eyebrow'),
+    textElement('h1', pageTitle),
+    textElement('p', 'Name · ' + (nameField.value.trim() || '________________'))
+  );
+  sheet.replaceChildren(heading);
+
+  for (const activity of form.querySelectorAll('section')) {
+    const copy = activity.cloneNode(true);
+    copy.className = 'print-activity';
+    const badge = copy.querySelector('.eyebrow');
+    const title = copy.querySelector('h2');
+    const activityHeading = textElement('div', '', 'print-activity-heading');
+    activityHeading.append(badge, title);
+    copy.prepend(activityHeading);
+
+    for (const control of copy.querySelectorAll('input, textarea, select, .slot')) {
+      const original = document.getElementById(control.id);
+      if (control.classList.contains('slot')) {
+        control.replaceWith(printValue(original.classList.contains('filled') ? original.textContent : ''));
+        continue;
+      }
+      const value = original.value.trim();
+      const label = control.closest('label');
+      if (label) {
+        const response = textElement('div', '', 'print-response');
+        response.append(textElement('span', label.firstChild.textContent, 'print-response-label'), printValue(value));
+        label.replaceWith(response);
+      } else {
+        control.replaceWith(printValue(value, 'span'));
+      }
+    }
+
+    for (const group of copy.querySelectorAll('.matching')) {
+      group.querySelector('p').remove();
+      group.querySelector('.bank').remove();
+    }
+    // Keep SVG IDs distinct from their screen versions so arrow markers resolve in print.
+    for (const marker of copy.querySelectorAll('marker[id]')) {
+      const id = marker.id;
+      marker.id = 'print-' + id;
+      for (const arrow of copy.querySelectorAll('[marker-end]')) {
+        if (arrow.getAttribute('marker-end') === 'url(#' + id + ')') {
+          arrow.setAttribute('marker-end', 'url(#' + marker.id + ')');
+        }
+      }
+    }
+    copy.removeAttribute('id');
+    for (const element of copy.querySelectorAll(':not(marker)[id]')) element.removeAttribute('id');
+    sheet.append(copy);
+  }
+}
+window.addEventListener('beforeprint', preparePrint);
+window.addEventListener('afterprint', () => { document.title = pageTitle; });
+document.querySelector('#export').addEventListener('click', () => {
+  const name = nameField.value.trim().replace(/[^a-zA-Z0-9 _-]/g, '').slice(0, 60);
+  if (name) document.title = pageTitle + ' - ' + name;
+  preparePrint();
+  window.print();
+});
+</script></body></html>
